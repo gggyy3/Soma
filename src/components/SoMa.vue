@@ -2,7 +2,7 @@
   <div class="soma">
     <header class="globalHeader">
       <form class="searchForm" method="get" action="https://www.baidu.com/s">
-        <input name="wd" type="text" />
+        <input name="wd" type="text" @keydown.stop="enter"/>
         <button type="submit">搜索</button>
       </form>
     </header>
@@ -78,6 +78,9 @@ export default {
     },
     close(index) {
       this.urlList.splice(index, 1)
+    },
+    enter(){
+      // 阻止冒泡
     }
   },
   beforeCreate() {
@@ -90,6 +93,7 @@ export default {
     },
     // 监听键盘事件
     document.onkeydown = (e) => {
+      // console.log(e)
       this.key = e.key;
       for(let i= 0; i< this.urlList.length; i++){
         if(this.urlList[i].logo.toLowerCase() === this.key){

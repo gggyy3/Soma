@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <SoMa/>
+    <SoMa />
   </div>
 </template>
 
